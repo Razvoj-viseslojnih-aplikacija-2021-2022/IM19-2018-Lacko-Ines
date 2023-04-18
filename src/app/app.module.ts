@@ -17,6 +17,8 @@ import { RacunComponent } from './app/racun/racun.component';
 import { ProizvodjacComponent } from './app/proizvodjac/proizvodjac.component';
 import { ProizvodComponent } from './app/proizvod/proizvod.component';
 import { StavkaRacunaComponent } from './app/stavka-racuna/stavka-racuna.component';
+import { MatTableModule } from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { StavkaRacunaComponent } from './app/stavka-racuna/stavka-racuna.compone
     MatExpansionModule,
     MatIconModule,
     MatListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatTableModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
