@@ -26,6 +26,8 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ProizvodjacDialogComponent } from './app/dialog/proizvodjac-dialog/proizvodjac-dialog.component';
+import { ProizvodDialogComponent } from './app/dialog/proizvod-dialog/proizvod-dialog.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { ProizvodjacDialogComponent } from './app/dialog/proizvodjac-dialog/proi
     ProizvodComponent,
     StavkaRacunaComponent,
     RacunDialogComponent,
-    ProizvodjacDialogComponent
+    ProizvodjacDialogComponent,
+    ProizvodDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,8 @@ import { ProizvodjacDialogComponent } from './app/dialog/proizvodjac-dialog/proi
     MatDialogModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
