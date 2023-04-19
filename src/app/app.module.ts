@@ -19,6 +19,12 @@ import { ProizvodComponent } from './app/proizvod/proizvod.component';
 import { StavkaRacunaComponent } from './app/stavka-racuna/stavka-racuna.component';
 import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
+import { RacunDialogComponent } from './app/dialog/racun-dialog/racun-dialog.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -29,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     RacunComponent,
     ProizvodjacComponent,
     ProizvodComponent,
-    StavkaRacunaComponent
+    StavkaRacunaComponent,
+    RacunDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +49,12 @@ import { HttpClientModule } from '@angular/common/http';
     MatListModule,
     MatToolbarModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
