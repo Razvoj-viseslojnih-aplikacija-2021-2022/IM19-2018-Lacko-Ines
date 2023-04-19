@@ -28,6 +28,8 @@ import { MatInputModule } from '@angular/material/input';
 import { ProizvodjacDialogComponent } from './app/dialog/proizvodjac-dialog/proizvodjac-dialog.component';
 import { ProizvodDialogComponent } from './app/dialog/proizvod-dialog/proizvod-dialog.component';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { MatSelectModule } from '@angular/material/select';
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
