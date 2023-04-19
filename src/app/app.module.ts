@@ -25,6 +25,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ProizvodjacDialogComponent } from './app/dialog/proizvodjac-dialog/proizvodjac-dialog.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { MatInputModule } from '@angular/material/input';
     ProizvodjacComponent,
     ProizvodComponent,
     StavkaRacunaComponent,
-    RacunDialogComponent
+    RacunDialogComponent,
+    ProizvodjacDialogComponent
   ],
   imports: [
     BrowserModule,

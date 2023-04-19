@@ -31,7 +31,7 @@ export class RacunComponent implements OnInit {
    this.dataSource = this.racunService.getAllRacun();
    /*this.racunService.getAllRacun().subscribe(data => {
     this.dataSource = new MatTableDataSource(data);
-  } 
+  }
   )/*,
   (error : Error) => {
     console.log(error.name + ' ' + error.message);

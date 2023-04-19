@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-    <span class="title-center">Racun</span>
+    <span class="title-center">Račun</span>
 </mat-toolbar>
 <div class="container mat-elevation-z8">
     <mat-table [dataSource]="dataSource" class="mat-cell">
@@ -28,7 +28,7 @@
             <mat-cell *matCellDef="let row">
                 <button mat-icon-button color="primary" (click)="openDialog(2, row.id, row.datum, row.nacinplacanja)">
                 <mat-icon arial label="Edit">edit</mat-icon>
-              </button>
+              </button> 
                 <button mat-icon-button color="primary" (click)="openDialog(3, row.id, row.datum, row.nacinplacanja)">
                 <mat-icon arial label="Delete">delete</mat-icon>
               </button>
