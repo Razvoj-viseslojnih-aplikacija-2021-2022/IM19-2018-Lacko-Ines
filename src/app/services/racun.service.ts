@@ -21,10 +21,10 @@ export class RacunService {
     this.httpClient.get<Racun[]>(this.API_URL).subscribe(
       data => {
       this.dataChange.next(data);
-    },/*
+    },
     (error: HttpErrorResponse) => {
       console.log(error.name + ' ' + error.message);
-    }*/);
+    });
 
     return this.dataChange.asObservable();
   }

@@ -30,6 +30,7 @@ import { ProizvodDialogComponent } from './app/dialog/proizvod-dialog/proizvod-d
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { StavkaRacunaDialogComponent } from './app/dialog/stavka-racuna-dialog/stavka-racuna-dialog.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
     StavkaRacunaComponent,
     RacunDialogComponent,
     ProizvodjacDialogComponent,
-    ProizvodDialogComponent
+    ProizvodDialogComponent,
+    StavkaRacunaDialogComponent
   ],
   imports: [
     BrowserModule,

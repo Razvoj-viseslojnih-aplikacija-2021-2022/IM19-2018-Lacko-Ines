@@ -17,6 +17,8 @@ export class ProizvodComponent implements OnInit {
   proizvodjac!: Proizvodjac;
 
   dataSource!: Observable<Proizvod[]>;
+
+  selektovaniProizvod!: Proizvod;
   
 constructor(public proizvodService: ProizvodService,
   public dialog: MatDialog) {}
@@ -37,5 +39,10 @@ constructor(public proizvodService: ProizvodService,
         this.loadData();
       }
     })
+  }
+
+  public selectedRow(row: Proizvod): void {
+    this.selektovaniProizvod = row;
+
   }
 }

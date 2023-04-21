@@ -36,9 +36,15 @@
       </ng-container>
   
       <mat-header-row *matHeaderRowDef="displayedColumns">
-        <mat-row style="cursor: default" *matRowDef="let row; columns: displayedColumns">
+        <mat-row style="cursor: pointer" *matRowDef="let row; columns: displayedColumns" (click)="selectedRow(row)"
+      [ngClass]="{'selectedRow': selektovaniProizvod != null && selektovaniProizvod.id == row.id}">
         </mat-row>
       </mat-header-row>
   
     </mat-table>
+  </div>
+
+  <div class="container mat-elevation-z8">
+    <app-stavka-racuna *ngIf="selektovaniProizvod" [selektovaniProizvod]="selektovaniProizvod">
+    </app-stavka-racuna>
   </div>

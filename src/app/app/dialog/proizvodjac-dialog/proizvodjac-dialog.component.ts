@@ -12,6 +12,7 @@ import { ProizvodjacService } from 'src/app/services/proizvodjac.service';
 export class ProizvodjacDialogComponent implements OnInit{
 
   public flag!: number;
+  
   constructor(public snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<ProizvodjacDialogComponent>,
     @Inject (MAT_DIALOG_DATA)
