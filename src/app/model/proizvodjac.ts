@@ -3,4 +3,5 @@ export  class Proizvodjac {
   naziv!: string;
   adresa!: string;
   kontakt!: string;
+
 }

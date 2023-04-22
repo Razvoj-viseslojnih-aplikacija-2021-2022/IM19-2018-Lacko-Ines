@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable } from 'rxjs/internal/Observable';
 import  { Racun } from 'src/app/model/racun';
@@ -17,8 +19,14 @@ export class RacunComponent implements OnInit {
 
   today: Date = new Date();
 
-  dataSource!: Observable<Racun[]>;
- // constructor() { }
+  // dataSource!: Observable<Racun[]>;
+  dataSource!: MatTableDataSource<Racun>;
+ 
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+
+  @ViewChild(MatSort)
+  sort!: MatSort;
 
   constructor(private racunService : RacunService,
               private dialog: MatDialog) {}
@@ -28,14 +36,18 @@ export class RacunComponent implements OnInit {
   }  
 
   public loadData(){
-   this.dataSource = this.racunService.getAllRacun();
-   /*this.racunService.getAllRacun().subscribe(data => {
+   // this.dataSource = this.racunService.getAllRacun();
+   this.racunService.getAllRacun().subscribe( data => {
     this.dataSource = new MatTableDataSource(data);
-  }
-  )/*,
-  (error : Error) => {
-    console.log(error.name + ' ' + error.message);
-  }*/
+    this.dataSource.sortingDataAccessor = (data:any, property) =>{
+      switch(property){
+        case 'id': return data[property];
+        default: return data[property].toLocaleLowerCase();
+      }
+    };
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  });
   }
 
   public openDialog(flag: number, id: number, datum: Date, nacinplacanja: string) {
@@ -47,5 +59,11 @@ export class RacunComponent implements OnInit {
       }
     })
 
+  }
+
+  applyFilter(filterValue: string) {
+    filterValue.trim();
+    filterValue = filterValue.toLowerCase();
+    this.dataSource.filter = filterValue;
   }
 }

@@ -2,20 +2,23 @@
     <span class="title-center">Račun</span>
 </mat-toolbar>
 <div class="container mat-elevation-z8">
-    <mat-table [dataSource]="dataSource" class="mat-cell">
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Filter">
+      </mat-form-field>
+    <mat-table [dataSource]="dataSource" class="mat-cell" matSort>
 
         <ng-container matColumnDef="id">
-            <mat-header-cell *matHeaderCellDef>Id</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
             <mat-cell *matCellDef="let row">{{row.id}}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="datum">
-            <mat-header-cell *matHeaderCellDef>Datum</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Datum</mat-header-cell>
             <mat-cell *matCellDef="let row">{{row.datum | date: "dd.MM.yyyy."}}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="nacinplacanja">
-            <mat-header-cell *matHeaderCellDef>Nacinplacanja</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Nacinplacanja</mat-header-cell>
             <mat-cell *matCellDef="let row">{{row.nacinplacanja}}</mat-cell>
         </ng-container>
 
@@ -42,4 +45,7 @@
     </mat-header-row>
 
     </mat-table>
+    <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+
+    </mat-paginator>
 </div>

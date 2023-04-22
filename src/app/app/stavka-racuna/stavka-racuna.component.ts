@@ -1,5 +1,7 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
 // import { Observable } from 'rxjs/internal/Observable';
@@ -31,16 +33,18 @@ export class StavkaRacunaComponent implements OnInit  {
 
   racun!: Racun;
 
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+
+  @ViewChild(MatSort)
+  sort!: MatSort;
+
   constructor(public stavkaRacunaService: StavkaRacunaService,
     public dialog: MatDialog) {}
 
   ngOnInit(): void {
    // this.loadData();
   }
-
-  /*public loadData(){
-    this.dataSource = this.stavkaRacunaService.getAllStavkaRacuna();
-  }*/
     ngOnChanges(): void {
       if (this.selektovaniProizvod!.id) {
         this.loadData();
@@ -50,7 +54,30 @@ export class StavkaRacunaComponent implements OnInit  {
         //this.dataSource = this.stavkaPorudzbineService.getAllStavkeZaPorudzbinu(this.selektovanaPorudzbina.id);
         this.stavkaRacunaService.getAllStavkeZaRacune(this.selektovaniProizvod.id).subscribe( data => {
           this.dataSource = new MatTableDataSource(data);
-        });
+          
+      this.dataSource.filterPredicate = (data: any, filter: string) => {
+        const accumulator = (currentTerm: string, key: string) => {
+          return key === 'racun' ? currentTerm + data.racun.nacinplacanja : currentTerm + data[key];
+        };
+        const dataStr = Object.keys(data).reduce(accumulator, '').toLowerCase();
+        const transformedFilter = filter.trim().toLowerCase();
+        return dataStr.indexOf(transformedFilter) !== -1;
+      };
+
+      this.dataSource.sortingDataAccessor = (data:any, property) =>{
+        switch(property){
+          case 'id': return data[property];
+          case 'redniBroj': return data[property];
+          case 'kolicina': return data[property];
+          case 'cena': return data[property];
+          case 'racun': return data.racun.nacinplacanja.toLocaleLowerCase();
+          default: return data[property].toLocaleLowerCase();
+        }
+      };
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
+        
       } 
   
 
@@ -62,6 +89,12 @@ export class StavkaRacunaComponent implements OnInit  {
         this.loadData();
       }
     })
+  }
+
+  applyFilter(filterValue: string) {
+    filterValue.trim();
+    filterValue = filterValue.toLowerCase();
+    this.dataSource.filter = filterValue;
   }
 
 }
