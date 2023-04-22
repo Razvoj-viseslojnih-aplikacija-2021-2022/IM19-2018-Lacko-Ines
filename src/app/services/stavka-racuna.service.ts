@@ -9,7 +9,7 @@ import { StavkaRacuna } from '../model/stavka-racuna';
 })
 
 export class StavkaRacunaService {
-  private readonly API_URL = 'http://localhost:8082/stavka_racuna';
+  private readonly API_URL = 'http://localhost:8082/stavka_racuna/';
 
   private readonly API_URL_P = 'http://localhost:8082/stavkeZaRacune/';
 

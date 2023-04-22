@@ -10,7 +10,7 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 })
 export class RacunService {
 
-  private readonly API_URL = 'http://localhost:8082/racun';
+  private readonly API_URL = 'http://localhost:8082/racun/';
 
   dataChange: BehaviorSubject<Racun[]> = new BehaviorSubject<Racun[]>([]);
 

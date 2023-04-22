@@ -8,7 +8,7 @@ import { Proizvodjac } from '../model/proizvodjac';
   providedIn: 'root'
 })
 export class ProizvodjacService {
-  private readonly API_URL = 'http://localhost:8082/proizvodjac';
+  private readonly API_URL = 'http://localhost:8082/proizvodjac/';
 
   dataChange: BehaviorSubject<Proizvodjac[]> = new BehaviorSubject<Proizvodjac[]>([]);
 
